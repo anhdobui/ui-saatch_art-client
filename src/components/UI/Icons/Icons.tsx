@@ -995,3 +995,51 @@ export const SaatchiArtIcon = ({ width = 118, height = 11, className }: PropsIco
     </g>
   </svg>
 )
+export const SortIcon = ({ width = 16, height = 16, className }: PropsIcon) => (
+  <svg
+    className={className}
+    width={width}
+    height={height}
+    viewBox='0 0 16 16'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <path
+      d='M1.5 4.5l3-3m0 0l3 3m-3-3v13M11.5 14.5v-13m0 13l3-3m-3 3l-3-3'
+      stroke='#333'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+)
+export const PlusIcon = ({ width = 20, height = 20, className, colorClass }: PropsIcon & { colorClass?: string }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height} viewBox='0 0 22 28' className={className}>
+    <path
+      className={colorClass}
+      d='M22 11.5v3a1.5 1.5 0 0 1-1.5 1.5H14v6.5a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 8 22.5V16H1.5A1.5 1.5 0 0 1 0 14.5v-3A1.5 1.5 0 0 1 1.5 10H8V3.5A1.5 1.5 0 0 1 9.5 2h3A1.5 1.5 0 0 1 14 3.5V10h6.5a1.5 1.5 0 0 1 1.5 1.5z'
+    />
+  </svg>
+)
+
+export const HeartIcon = ({ width = 20, height = 20, className, colorClass }: PropsIcon & { colorClass?: string }) => (
+  <svg width={width} height={height} className={className} viewBox='0 0 23 20' xmlns='http://www.w3.org/2000/svg'>
+    <path
+      className={colorClass}
+      d='M22 6.54C22 3.48 19.384 1 16.156 1c-1.9 0-3.59.861-4.656 2.194C10.433 1.86 8.744 1 6.844 1 3.616 1 1 3.48 1 6.54 1 7.85 1.482 9.052 2.283 10c.11.13 9.226 9.999 9.226 9.999l9.21-10A5.34 5.34 0 0 0 22 6.54z'
+      stroke='#221F20'
+      fill='none'
+      fillRule='evenodd'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+)
+export const CartIcon = ({ width = 20, height = 20, className, colorClass }: PropsIcon & { colorClass?: string }) => (
+  <svg className={className} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 21' width={width} height={height}>
+    <g className={colorClass} fill='none' fillRule='evenodd' transform='translate(0 1)'>
+      <path stroke='#333' strokeLinecap='round' d='M0 .478h4.667l3.734 13.077H23.35l2.804-8.635' />
+      <circle cx='21.25' cy='17.669' r='1.635' fill='#333' />
+      <circle cx='10.232' cy='17.924' r='1.635' fill='#333' />
+    </g>
+  </svg>
+)

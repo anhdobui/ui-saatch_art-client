@@ -34,6 +34,8 @@ module.exports = {
     node: true
   },
   rules: {
+    'eslintjsx-a11y/click-events-have-key-events': 'off',
+    'eslintjsx-a11y/no-static-element-interactions': 'off',
     'import/no-unresolved': 'off',
     'react/no-unescaped-entities': 'off',
     // Tắt rule yêu cầu import React trong file jsx
