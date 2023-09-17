@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react'
 import { gapi } from 'gapi-script'
 import BtnLoginWithGoogle from '../BtnLoginWithGoogle/BtnLoginWithGoogle'
 import { AppContext } from 'src/contexts/app.context'
-const clientId = '6090565573-83hb5s5lrn146nh8ov7dvhs16hi4tjam.apps.googleusercontent.com'
+const clientId = '632250013050-bjldn4nk31mg68ofl9vits699uemhnbe.apps.googleusercontent.com'
 
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 

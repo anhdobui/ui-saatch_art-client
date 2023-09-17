@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import { Logo } from 'src/components/UI/Icons'
 
 function MainLogo() {
   return (
-    <div>
+    <Link to='/' className='block'>
       <Logo className='pt-[5px]' />
-    </div>
+    </Link>
   )
 }
 

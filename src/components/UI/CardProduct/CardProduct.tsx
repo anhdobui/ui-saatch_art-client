@@ -1,18 +1,17 @@
 import { Link } from 'react-router-dom'
 import ActionCard from './ActionCard/ActionCard'
-interface CardProductProps {
-  thumbnail: string
-}
-function CardProduct({ thumbnail }: CardProductProps) {
+import { ProductType } from 'src/type/app.type'
+
+function CardProduct({ image, name, price }: ProductType) {
   return (
     <div className='relative mb-[10px] flex w-full min-w-[100%] flex-col justify-start'>
       <div className='group w-[320px]'>
         <div className='w-full'>
           <Link to='/' className='block'>
-            <img src={thumbnail} alt='' className='block h-auto max-h-[100%] w-auto max-w-[100%] bg-gray-204 ' />
+            <img src={image} alt='' className='block h-auto max-h-[100%] w-auto max-w-[100%] bg-gray-204 ' />
           </Link>
           <div className='mb-[10px] mt-5 '>
-            <p className='w-full font-crimson-text text-[17px] text-gray-51'>If you can dream it</p>
+            <p className='w-full font-crimson-text text-[17px] text-gray-51'>{name}</p>
             <p className='flex text-xs text-gray-102 '>
               <span>Paintings </span>
               <span>, </span>
@@ -29,7 +28,7 @@ function CardProduct({ thumbnail }: CardProductProps) {
               </div>
             </div>
             <div className='flex w-[40%] flex-col items-end'>
-              <p className='font-crimson-text text-base'>$1,460</p>
+              <p className='font-crimson-text text-base'>{price || '$1,460'}</p>
             </div>
           </div>
         </div>

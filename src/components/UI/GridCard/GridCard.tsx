@@ -1,9 +1,8 @@
-import React, { ReactNode } from 'react'
 import CardProduct from '../CardProduct'
 import { ProductType } from 'src/type/app.type'
 import { nanoid } from 'nanoid'
 interface GridCardProps {
-  children?: ReactNode
+  data: ProductType[] | undefined
 }
 const dataPrd: ProductType[] = [
   {
@@ -91,21 +90,23 @@ const dataPrd: ProductType[] = [
     price: ''
   }
 ]
-function GridCard({ children }: GridCardProps) {
+function GridCard({ data }: GridCardProps) {
+  console.log('GridCard', data)
   return (
-    <div className='grid grid-cols-6 gap-4'>
-      {dataPrd &&
-        Array.from({ length: 6 }).map((_, colIndex) => (
+    <div className='mb-10 grid grid-cols-4 gap-4'>
+      {data &&
+        Array.from({ length: 4 }).map((_, colIndex) => (
           <div key={colIndex}>
-            {dataPrd
-              .filter((_, index) => index % 6 === colIndex)
+            {data
+              .filter((_, index) => index % 4 === colIndex)
               .map((item) => (
                 <div key={nanoid()} className=''>
-                  <CardProduct thumbnail={item.image} />
+                  <CardProduct name={item.name} image={item.image} price={item.price} id={item.id} />
                 </div>
               ))}
           </div>
         ))}
+      <h1>{!data && 'Trang không có sản phẩm nào'}</h1>
     </div>
   )
 }
