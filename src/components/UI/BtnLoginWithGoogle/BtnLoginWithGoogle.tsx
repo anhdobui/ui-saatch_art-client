@@ -2,21 +2,24 @@ import { useContext } from 'react'
 import GoogleLogin from 'react-google-login'
 import { toast } from 'react-toastify'
 import { AppContext } from 'src/contexts/app.context'
-import { User } from 'src/type/user.type'
+import { User, UserProfile } from 'src/type/user.type'
 import { setProfileToLS } from 'src/utils/auth'
 
 function BtnLoginWithGoogle({ clientId }: { clientId: string }) {
-  const { setIsShow, setProfile, setIsAuthenticated } = useContext(AppContext)
+  const { setIsShowLogin, setProfile, setIsAuthenticated } = useContext(AppContext)
   const handleLoginSuccess = (response: any) => {
+    console.log(response)
     toast.success('Login success')
-    const user: User = {
+    const user: UserProfile = {
       email: response?.profileObj?.email,
       thumbnail: response?.profileObj?.imageUrl,
-      name: response?.profileObj?.name
+      username: response?.profileObj?.name,
+      id: -1,
+      fullname: response?.profileObj?.name
     }
     setProfile(user)
     setProfileToLS(user)
-    setIsShow(false)
+    setIsShowLogin(false)
     setIsAuthenticated(true)
     console.log('Đăng nhập thành công:', response)
   }

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Ẩn mũi tên trên Firefox */
+input[type='number'] {
+  @apply appearance-none;
+}
+
+/* Ẩn mũi tên trên Chrome, Safari, Edge, và Opera */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  @apply appearance-none;
+  margin: 0;
+}

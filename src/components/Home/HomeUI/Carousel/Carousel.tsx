@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import ThumbnailStory from './../Story/ThumbnailStory/ThumbnailStory'
-import { ReactNode } from 'react'
-import React from 'react'
+import React, { ReactNode } from 'react'
+
 interface CarouselInfc {
   children?: ReactNode
 }

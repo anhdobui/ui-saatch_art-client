@@ -4,7 +4,7 @@ import { Logo } from 'src/components/UI/Icons'
 function MainLogo() {
   return (
     <Link to='/' className='block'>
-      <Logo className='pt-[5px]' />
+      <Logo />
     </Link>
   )
 }

@@ -1,23 +1,33 @@
 import { useQuery } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getArtwork } from 'src/apis/artwork.api'
-import { getCategoryDetail } from 'src/apis/category.api'
+import { getPaintingByTopicId } from 'src/apis/painting.api'
 import Category from 'src/components/Category'
 import { ProductType } from 'src/type/app.type'
 
 function CategoryScreen() {
-  const { category } = useParams()
-  const categoryid = category && category.split('___')[1]
-  const query = useQuery({ queryKey: ['artwork'], queryFn: getArtwork })
-  const dataCategory: ProductType[] | undefined =
-    query?.data?.data.data.listResult &&
-    query?.data?.data.data.listResult.map((item: any) => ({
-      id: item.id,
-      image: `http://localhost:8080${item.thumbnailUrl}`,
-      name: item.name,
-      price: item.price
-    }))
-  return <Category data={dataCategory} name={category} />
+  const { topic } = useParams()
+  const [dataCategory, setDataCategory] = useState<ProductType[]>([])
+
+  const decodedTopic = topic && decodeURIComponent(topic)
+  const topicId = decodedTopic && decodedTopic.split('-#-')[1]
+  const topicName = decodedTopic && decodedTopic.split('-#-')[0]
+  const queryTopic = useQuery({
+    queryKey: ['paintings', { topic: topicId }],
+    queryFn: () => getPaintingByTopicId(Number(topicId)),
+    select: (data) =>
+      data.data.map((item) => ({
+        id: item.id,
+        image: item.thumbnailUrl,
+        name: item.name,
+        price: `${item.price ?? '∞'}$`
+      })),
+    enabled: !!topicId
+  })
+  useEffect(() => {
+    queryTopic.data && setDataCategory(queryTopic.data)
+  }, [queryTopic.data, setDataCategory])
+  return <Category data={dataCategory} name={topicName} />
 }
 
 export default CategoryScreen

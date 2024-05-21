@@ -1,8 +1,11 @@
-import { useRoutes } from 'react-router-dom'
+import { Navigate, Outlet, useRoutes } from 'react-router-dom'
 import MainLayout from './layout/MainLayout'
 import Home from './pages/Home'
 import Category from './pages/Category/Category'
-import Login from './components/UI/Login'
+import Cart from './components/Cart'
+import SimpleLayout from './layout/SimpleLayout'
+import { useContext, useEffect } from 'react'
+import { AppContext } from './contexts/app.context'
 
 function useRouteElements() {
   const routeElements = useRoutes([
@@ -14,8 +17,17 @@ function useRouteElements() {
         </MainLayout>
       )
     },
+
     {
-      path: '/:category',
+      path: '/checkout',
+      element: (
+        <SimpleLayout>
+          <Cart />
+        </SimpleLayout>
+      )
+    },
+    {
+      path: '/:topic',
       element: (
         <MainLayout>
           <Category />

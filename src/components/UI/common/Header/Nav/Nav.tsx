@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { CategoryNav } from 'src/type/category'
+import { TopicNav } from 'src/type/topic'
 
 type NavType = {
-  dataNav: CategoryNav[]
+  dataNav: TopicNav[]
 }
 function Nav({ dataNav }: NavType) {
   return (
@@ -10,8 +10,11 @@ function Nav({ dataNav }: NavType) {
       {dataNav &&
         dataNav.map((item) => (
           <li key={item.id}>
-            <Link to={`/image___${item.id}`} className='px-2 text-sm font-bold text-gray-700'>
-              {item.name}
+            <Link
+              to={`/${encodeURIComponent(`${item.title}-#-${item.id}`)}`}
+              className='px-2 text-sm font-bold text-gray-700'
+            >
+              {item.title}
             </Link>
           </li>
         ))}

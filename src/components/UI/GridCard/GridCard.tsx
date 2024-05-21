@@ -6,92 +6,91 @@ interface GridCardProps {
 }
 const dataPrd: ProductType[] = [
   {
-    id: '',
+    id: 1,
     image: 'https://images.saatchiart.com/saatchi/192132/art/9953017/9015935-UHMHKCGU-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 2,
     image: 'https://images.saatchiart.com/saatchi/425707/art/9329927/8393035-ZVGJAWSP-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 3,
     image: 'https://images.saatchiart.com/saatchi/192132/art/9953017/9015935-UHMHKCGU-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 4,
     image: 'https://images.saatchiart.com/saatchi/425707/art/9329927/8393035-ZVGJAWSP-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 5,
     image: 'https://images.saatchiart.com/saatchi/192132/art/9953017/9015935-UHMHKCGU-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 6,
     image: 'https://images.saatchiart.com/saatchi/425707/art/9329927/8393035-ZVGJAWSP-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 7,
     image: 'https://images.saatchiart.com/saatchi/192132/art/9953017/9015935-UHMHKCGU-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 8,
     image: 'https://images.saatchiart.com/saatchi/425707/art/9329927/8393035-ZVGJAWSP-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 9,
     image: 'https://images.saatchiart.com/saatchi/192132/art/9953017/9015935-UHMHKCGU-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 10,
     image: 'https://images.saatchiart.com/saatchi/425707/art/9329927/8393035-ZVGJAWSP-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 11,
     image: 'https://images.saatchiart.com/saatchi/192132/art/9953017/9015935-UHMHKCGU-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 12,
     image: 'https://images.saatchiart.com/saatchi/425707/art/9329927/8393035-ZVGJAWSP-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 13,
     image: 'https://images.saatchiart.com/saatchi/192132/art/9953017/9015935-UHMHKCGU-6.jpg',
     name: '',
     price: ''
   },
   {
-    id: '',
+    id: 14,
     image: 'https://images.saatchiart.com/saatchi/425707/art/9329927/8393035-ZVGJAWSP-6.jpg',
     name: '',
     price: ''
   }
 ]
 function GridCard({ data }: GridCardProps) {
-  console.log('GridCard', data)
   return (
     <div className='mb-10 grid grid-cols-4 gap-4'>
       {data &&

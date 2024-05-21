@@ -6,8 +6,9 @@ import { clearLS } from 'src/utils/auth'
 function Profile() {
   const { profile } = useContext(AppContext)
   const [isShowDrop, setIsShowDrop] = useState(false)
-  const { setIsAuthenticated } = useContext(AppContext)
+  const { setIsAuthenticated, setDataCart } = useContext(AppContext)
   const handleLogout = () => {
+    setDataCart(null)
     setIsShowDrop(false)
     clearLS()
     setIsAuthenticated(false)
@@ -26,7 +27,7 @@ function Profile() {
               <span className='absolute left-7 top-0  h-3.5 w-3.5 rounded-full border-2 border-white bg-green-400 dark:border-gray-800'></span>
             </div>
             <div className='font-medium dark:text-white'>
-              <div>{profile?.name}</div>
+              <div>{profile?.fullname}</div>
               <div className='text-sm text-gray-500 dark:text-gray-400'>{profile?.email}</div>
             </div>
           </div>

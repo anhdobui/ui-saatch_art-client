@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import Login from 'src/components/UI/Login'
+import Login from 'src/components/UI/Auth'
 import Footer from 'src/components/UI/common/Footer'
 import Header from 'src/components/UI/common/Header'
 

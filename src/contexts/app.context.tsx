@@ -1,37 +1,52 @@
 import { createContext, useState } from 'react'
-import { User } from 'src/type/user.type'
+import { CartType } from 'src/type/cart.type'
+import { UserProfile, UserType } from 'src/type/user.type'
 import { getProfileToLS } from 'src/utils/auth'
 
 interface AppContextInterface {
   isAuthenticated: boolean
   setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>
-  isShow: boolean
-  setIsShow: React.Dispatch<React.SetStateAction<boolean>>
-  profile: User | null
-  setProfile: React.Dispatch<React.SetStateAction<User | null>>
+  isShowLogin: boolean
+  setIsShowLogin: React.Dispatch<React.SetStateAction<boolean>>
+  isShowRegister: boolean
+  setIsShowRegister: React.Dispatch<React.SetStateAction<boolean>>
+  profile: UserProfile | null
+  setProfile: React.Dispatch<React.SetStateAction<UserProfile | null>>
+  dataCart: CartType | null
+  setDataCart: React.Dispatch<React.SetStateAction<CartType | null>>
 }
 const initialAppContext: AppContextInterface = {
   isAuthenticated: Boolean(getProfileToLS()),
   setIsAuthenticated: () => null,
-  isShow: false,
-  setIsShow: () => null,
+  isShowLogin: false,
+  setIsShowLogin: () => null,
+  isShowRegister: false,
+  setIsShowRegister: () => null,
   profile: getProfileToLS(),
-  setProfile: () => null
+  setProfile: () => null,
+  dataCart: null,
+  setDataCart: () => null
 }
 
 export const AppContext = createContext<AppContextInterface>(initialAppContext)
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(initialAppContext.isAuthenticated)
-  const [isShow, setIsShow] = useState<boolean>(initialAppContext.isShow)
-  const [profile, setProfile] = useState<User | null>(initialAppContext.profile)
+  const [isShowLogin, setIsShowLogin] = useState<boolean>(initialAppContext.isShowLogin)
+  const [isShowRegister, setIsShowRegister] = useState<boolean>(initialAppContext.isShowRegister)
+  const [profile, setProfile] = useState<UserProfile | null>(initialAppContext.profile)
+  const [dataCart, setDataCart] = useState<CartType | null>(initialAppContext.dataCart)
   return (
     <AppContext.Provider
       value={{
+        dataCart,
+        setDataCart,
+        isShowRegister,
+        setIsShowRegister,
         isAuthenticated,
         setIsAuthenticated,
-        isShow,
-        setIsShow,
+        isShowLogin,
+        setIsShowLogin,
         setProfile,
         profile
       }}
