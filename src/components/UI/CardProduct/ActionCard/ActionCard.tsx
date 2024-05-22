@@ -30,7 +30,7 @@ function ActionCard({ paintingId }: { paintingId: number }) {
     }
   }
   return (
-    <div className='absolute right-[15px] top-[15px] flex opacity-0 transition-opacity delay-0 duration-200 ease-in-out group-hover:opacity-100 '>
+    <div className='absolute right-0 top-[1%] flex opacity-0 transition-opacity delay-0 duration-200 ease-in-out group-hover:opacity-100 '>
       <ButtonIcon icon={<PlusIcon colorClass='fill-gray-51 group-hover/button:fill-blue-custom' />} />
       <ButtonIcon icon={<HeartIcon colorClass='fill-gray-51 group-hover/button:fill-red-custom' />} />
       <ButtonIcon

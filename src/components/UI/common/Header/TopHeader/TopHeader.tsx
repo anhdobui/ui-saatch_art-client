@@ -28,7 +28,7 @@ function TopHeader() {
         </div>
         <div className='mr-6 mt-[6px]'>
           {isAuthenticated && (
-            <Link to={'/checkout'} className='relative'>
+            <Link to={'/user/checkout'} className='relative'>
               <Cart />
               <span className='absolute left-[50%] top-[5%] text-xs text-black'>{dataCart?.details.length}</span>
             </Link>

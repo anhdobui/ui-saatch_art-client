@@ -12,4 +12,5 @@ export type UserType = {
   phone: string
   grade: string
   fullname: string
+  address: string
 }

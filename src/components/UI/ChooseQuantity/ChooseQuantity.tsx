@@ -1,8 +1,20 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { debounce } from 'lodash'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { updateQtyCartDetail } from 'src/apis/cartDetail.api'
+import { AppContext } from 'src/contexts/app.context'
+import { toast } from 'react-toastify'
 
 function ChooseQuantity({ className, idCartDetail, qty }: { className?: string; idCartDetail: number; qty: number }) {
   const [count, setCount] = useState<number>(1)
+  const { profile } = useContext(AppContext)
+  const queryClient = useQueryClient()
+  const mutationCartDetail = useMutation({
+    mutationFn: (qty: number) => updateQtyCartDetail({ cartDetailId: idCartDetail, qty }),
+    onSuccess: () => {
+      queryClient.invalidateQueries(['carts', { accountId: profile?.id }])
+    }
+  })
   useEffect(() => {
     setCount(qty)
   }, [setCount, qty])
@@ -17,7 +29,7 @@ function ChooseQuantity({ className, idCartDetail, qty }: { className?: string; 
   }
   const debounceChooseQuantity = useCallback(
     debounce((nextValue) => {
-      console.log(nextValue)
+      mutationCartDetail.mutate(nextValue)
     }, 1000),
     []
   )

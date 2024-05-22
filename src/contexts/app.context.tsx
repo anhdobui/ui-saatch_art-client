@@ -10,8 +10,8 @@ interface AppContextInterface {
   setIsShowLogin: React.Dispatch<React.SetStateAction<boolean>>
   isShowRegister: boolean
   setIsShowRegister: React.Dispatch<React.SetStateAction<boolean>>
-  profile: UserProfile | null
-  setProfile: React.Dispatch<React.SetStateAction<UserProfile | null>>
+  profile: Partial<UserType> | null
+  setProfile: React.Dispatch<React.SetStateAction<Partial<UserType> | null>>
   dataCart: CartType | null
   setDataCart: React.Dispatch<React.SetStateAction<CartType | null>>
 }
@@ -34,7 +34,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(initialAppContext.isAuthenticated)
   const [isShowLogin, setIsShowLogin] = useState<boolean>(initialAppContext.isShowLogin)
   const [isShowRegister, setIsShowRegister] = useState<boolean>(initialAppContext.isShowRegister)
-  const [profile, setProfile] = useState<UserProfile | null>(initialAppContext.profile)
+  const [profile, setProfile] = useState<Partial<UserType> | null>(initialAppContext.profile)
   const [dataCart, setDataCart] = useState<CartType | null>(initialAppContext.dataCart)
   return (
     <AppContext.Provider

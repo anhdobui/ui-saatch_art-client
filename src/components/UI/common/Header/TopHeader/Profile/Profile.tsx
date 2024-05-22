@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AppContext } from 'src/contexts/app.context'
 import { clearLS } from 'src/utils/auth'
 
@@ -44,9 +45,11 @@ function Profile() {
                 </span>
               </li>
               <li>
-                <span className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
-                  Profile
-                </span>
+                <Link to='/user/profile'>
+                  <span className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
+                    Profile
+                  </span>
+                </Link>
               </li>
             </ul>
 
