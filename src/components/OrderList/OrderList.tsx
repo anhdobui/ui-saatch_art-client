@@ -38,6 +38,7 @@ const OrderList: React.FC<OrderListProps> = () => {
   const queryOrders = useQuery({
     queryKey: ['orders', { accountId: profile?.id }],
     queryFn: () => getOrders(Number(profile?.id)),
+    refetchInterval: 1000,
     select: (data) => data.data,
     enabled: isAuthenticated
   })
