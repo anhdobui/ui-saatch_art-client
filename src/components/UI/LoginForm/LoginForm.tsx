@@ -8,7 +8,7 @@ import { login, LoginType } from 'src/apis/auth.api'
 import { toast } from 'react-toastify'
 import { AxiosError } from 'axios'
 import { AppContext } from 'src/contexts/app.context'
-import { UserProfile } from 'src/type/user.type'
+import { UserProfile, UserType } from 'src/type/user.type'
 import { setProfileToLS } from 'src/utils/auth'
 
 const loginSchema = yup.object().shape({
@@ -30,12 +30,11 @@ const LoginForm: React.FC = ({ isPopup = true }: { isPopup?: boolean }) => {
   const mutationLogin = useMutation({
     mutationFn: (body: LoginType) => login(body),
     onSuccess: (data) => {
-      const userProfile: UserProfile = {
+      const userProfile: Partial<UserType> = {
         id: data.data.id,
         email: data.data.email,
         fullname: data.data.fullname,
-        username: data.data.username,
-        thumbnail: '/avatar.png'
+        username: data.data.username
       }
       setProfile(userProfile)
       setProfileToLS(userProfile)

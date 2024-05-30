@@ -24,7 +24,7 @@ function Profile() {
               onClick={(e) => setIsShowDrop((prev) => !prev)}
               onKeyDown={(e) => e.preventDefault()}
             >
-              <img className='h-10 w-10 rounded-full' src={profile?.thumbnail} alt='' />
+              <img className='h-10 w-10 rounded-full' src='/avatar.png' alt='' />
               <span className='absolute left-7 top-0  h-3.5 w-3.5 rounded-full border-2 border-white bg-green-400 dark:border-gray-800'></span>
             </div>
             <div className='font-medium dark:text-white'>
@@ -48,6 +48,20 @@ function Profile() {
                 <Link to='/user/profile'>
                   <span className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
                     Profile
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/user/order-list'>
+                  <span className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
+                    Order List
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/user/checkout'>
+                  <span className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
+                    Cart
                   </span>
                 </Link>
               </li>

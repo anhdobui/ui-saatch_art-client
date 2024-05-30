@@ -1,10 +1,10 @@
-import { User, UserProfile, UserType } from 'src/type/user.type'
+import { UserType } from 'src/type/user.type'
 
 export const getProfileToLS = () => {
   const result = localStorage.getItem('profile')
   return result ? JSON.parse(result) : null
 }
-export const setProfileToLS = (profile: User | UserProfile) => {
+export const setProfileToLS = (profile: Partial<UserType>) => {
   localStorage.setItem('profile', JSON.stringify(profile))
 }
 export const clearLS = () => {
