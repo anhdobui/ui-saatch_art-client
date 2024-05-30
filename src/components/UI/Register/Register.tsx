@@ -30,13 +30,14 @@ const Register: React.FC = () => {
   } = useForm({
     resolver: yupResolver(registerSchema)
   })
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [errorUsername, setErrorUsername] = useState<string>('')
   const mutationRegAccount = useMutation({
     mutationFn: (body: RegisterAccTypeBody) => registerAcc(body),
     onSuccess: () => {
       toast.success('Tạo tài khoản thành công')
-      navigate('/login')
+      setIsShowLogin(true)
+      setIsShowRegister(false)
     },
     onError: (err: AxiosError) => {
       setErrorUsername((err.response?.data as any)?.errorMessage)

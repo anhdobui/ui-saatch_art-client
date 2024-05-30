@@ -18,6 +18,10 @@ function TopHeader() {
         <LogoTopHeader logoComponent={<PaleLogoOther />} />
       </div>
       <div className='flex items-center'>
+        <a href='http://localhost:3001/' target='_blank' className='mr-3 font-bold text-gray-51 underline'>
+          Dashboard
+        </a>
+
         {isAuthenticated && <Profile />}
         {!isAuthenticated && <BtnLogin />}
         <div className='mr-[2px] mt-[5px] px-2'>
@@ -30,7 +34,7 @@ function TopHeader() {
           {isAuthenticated && (
             <Link to={'/user/checkout'} className='relative'>
               <Cart />
-              <span className='absolute left-[50%] top-[5%] text-xs text-black'>{dataCart?.details.length}</span>
+              <span className='absolute left-[50%] top-[5%] text-xs text-black'>{dataCart?.details?.length || 0}</span>
             </Link>
           )}
           {!isAuthenticated && (

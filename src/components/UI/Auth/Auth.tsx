@@ -51,7 +51,7 @@ function Auth({ isLoginGoogle = true }: LoginInf) {
                   <div className={`${isShowLogin && !isShowRegister ? 'mt-16' : ''}  grid space-y-4`}>
                     {isShowLogin && !isShowRegister && (
                       <>
-                        <BtnLoginWithGoogle clientId={clientId} />
+                        {/* <BtnLoginWithGoogle clientId={clientId} /> */}
                         <LoginForm />
                       </>
                     )}

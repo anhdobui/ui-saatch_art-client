@@ -58,7 +58,7 @@ const LoginForm: React.FC = ({ isPopup = true }: { isPopup?: boolean }) => {
   return (
     <div className={isPopup ? '' : 'flex min-h-screen items-center justify-center bg-gray-100'}>
       <div className={isPopup ? '' : 'w-full max-w-md space-y-3 rounded-xl bg-white p-8 shadow-md'}>
-        <h1 className='mb-5 text-center text-2xl font-bold'>or</h1>
+        {/* <h1 className='mb-5 text-center text-2xl font-bold'>or</h1> */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <InputField
             watch={watch}

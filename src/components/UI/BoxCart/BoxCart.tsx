@@ -11,6 +11,7 @@ function BoxCart({ className }: { className: string }) {
 
   useEffect(() => {
     dataCart &&
+      dataCart.details &&
       setDataCartList(
         dataCart.details.map((item) => ({
           id: item.id,
