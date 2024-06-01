@@ -6,7 +6,6 @@ import Cart from './components/Cart'
 import SimpleLayout from './layout/SimpleLayout'
 import OrderList from './components/OrderList'
 import UserProfile from './components/UserProfile'
-import User from './pages/User'
 import Bill from './components/Bill'
 
 function useRouteElements() {
