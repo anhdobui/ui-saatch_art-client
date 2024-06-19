@@ -7,6 +7,8 @@ import SimpleLayout from './layout/SimpleLayout'
 import OrderList from './components/OrderList'
 import UserProfile from './components/UserProfile'
 import Bill from './components/Bill'
+import CartPage from './pages/Cart/CartPage'
+import MessagePage from './pages/MessagePage'
 
 function useRouteElements() {
   const routeElements = useRoutes([
@@ -15,6 +17,14 @@ function useRouteElements() {
       element: (
         <MainLayout>
           <Home />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'message',
+      element: (
+        <MainLayout>
+          <MessagePage />
         </MainLayout>
       )
     },
@@ -42,10 +52,11 @@ function useRouteElements() {
           path: 'checkout',
           element: (
             <SimpleLayout isShowSidebar={false}>
-              <Cart />
+              <CartPage />
             </SimpleLayout>
           )
         },
+
         {
           path: 'bill',
           element: (

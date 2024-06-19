@@ -7,6 +7,7 @@ export type OrderPost = {
   deliveryAddress?: string
 }
 
-export const orderPainting = (body: OrderPost) => http.post<Order>(`orders`, body)
+export const orderPaintingUnpaid = (body: OrderPost) => http.post<Order>(`orders`, body)
+export const orderPaintingVnPay = (body: OrderPost) => http.post<{ paymentUrl: string }>(`vnpay/create`, body)
 export const getOrders = (accountId: number) => http.get<Order[]>(`orders?accountId=${accountId}`)
 export const cancelOrder = (orderId: number) => http.put<Order>(`orders/${orderId}`, { status: 'Canceled' })

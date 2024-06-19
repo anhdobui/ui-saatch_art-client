@@ -16,7 +16,7 @@ function App() {
     select: (data) => data.data,
     enabled: isAuthenticated
   })
-  console.log(queryCart.data)
+  // console.log(queryCart.data)
   useEffect(() => {
     queryCart.data && setDataCart(queryCart.data)
   }, [queryCart.data])

@@ -97,7 +97,11 @@ const OrderList: React.FC<OrderListProps> = () => {
                   </p>
                 )}
 
-                <p className='flex items-center text-sm text-gray-600'>
+                <p
+                  className={`flex items-center text-sm ${
+                    order.paymentStatus === 'Paid' ? 'text-green-600' : 'text-red-600'
+                  } `}
+                >
                   <FontAwesomeIcon icon={faMoneyBill} className='mr-2' />
                   Payment Status: {order.paymentStatus}
                 </p>

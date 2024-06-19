@@ -9,4 +9,5 @@ export const setProfileToLS = (profile: Partial<UserType>) => {
 }
 export const clearLS = () => {
   localStorage.removeItem('profile')
+  localStorage.removeItem('dataShip')
 }

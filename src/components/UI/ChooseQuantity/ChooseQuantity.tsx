@@ -3,7 +3,6 @@ import { debounce } from 'lodash'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { updateQtyCartDetail } from 'src/apis/cartDetail.api'
 import { AppContext } from 'src/contexts/app.context'
-import { toast } from 'react-toastify'
 
 function ChooseQuantity({ className, idCartDetail, qty }: { className?: string; idCartDetail: number; qty: number }) {
   const [count, setCount] = useState<number>(1)
